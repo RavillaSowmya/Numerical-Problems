@@ -1,0 +1,148 @@
+#include <stdio.h>
+int fact()
+{
+    int n,i,f=1;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+      f=f*i;
+    }
+    printf(" The factorial of n is%d\n",f);
+}
+int fibonac()
+{
+    int n,i,a=0,b=1,c;
+    scanf("%d",&n);
+    c=a+b;
+    printf("the fibonacci series is %d %d ",a,b);
+    for(i=1;i<=n;i++)
+    {
+       printf("%d ",c);
+       a=b;
+       b=c;
+       c=a+b;
+    }
+    return 0;
+}
+int sum()
+{
+    int n,i,sum=0;
+    printf("\nenter the number:");
+    scanf("%d",&n);
+    for(i=0;i<=n;i++)
+    {
+        sum=sum+i;
+    }
+    printf("the sum of digits is %d\n",sum);
+}
+int perfect()
+{
+    int n,rem,sum=0,i;
+    scanf("%d",&n);
+    for(i=1;i<n;i++)
+    {
+        rem=n%i;
+        if(rem==0)
+           sum=sum+i;
+    }
+    if(sum==n)
+     printf("it is a perfect number\n");
+    else
+     printf("it is not perfect number\n");
+}
+int  palindrome()
+{
+    int n,sum=0,temp,r,i;
+    scanf("%d",&n);
+    temp=n;
+    for(i=n;n!=0;n=n/10)
+    {
+        r=n%10;
+        sum=(sum*10)+r;
+    }
+    if(temp==sum)
+     printf("the number is polindrome\n");
+    else
+     printf("it is not a polindrome\n");
+}
+int prime()
+{
+    int i,n,fact,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        fact=0;
+        for(j=1;j<=n;j++)
+        {
+            if(i%j==0)
+            fact++;
+        }
+       if(fact==2)
+           printf(" %d",i);
+    }
+    return 0;
+}
+int countnum()
+{
+    int n,count=0;
+    printf("enter the number:");
+    scanf("%d",&n);
+    while(n!=0)
+    {
+      n=n/10;
+      count++;
+    }
+    printf("the digits are:%d",count);
+    return 0;
+}
+int amstrong()
+{
+    int i,n,temp,r,sum=0;
+    temp=n;
+    scanf("%d",&n);
+    for(i=0;i<=n;i++)
+       {
+           r=n%10;
+           sum=sum+(r*r*r);
+           n=n/10;
+       }
+       if(temp==n)
+           printf("it is a amstrong number");
+       else
+           printf("it is not a amstrong number");
+    return 0;
+}
+int main()
+{
+    int ch,op;
+    do
+    {
+        printf("1.fact\t2.fibonac\t3.sum\t4.perfect\t5.palindrome\t6.prime\t7.countnum\t8.amstrong\n");
+        printf("enter your choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+           case 1:fact();
+           break;
+           case 2:
+              fibonac();break;
+            case 3:
+              sum();break;
+            case 4:
+              perfect();break;
+            case 5:
+              palindrome();break;
+            case 6:  
+              prime();break;
+            case 7:
+              countnum();break;
+            case 8:
+              amstrong();break;
+            default:
+              printf("Invalid choice");
+        }
+        printf("\n do you want u continue press 1 or 0");
+        scanf("%d",&op);
+    }while(op);
+    return 0;
+}
